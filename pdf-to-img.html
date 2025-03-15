@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Convert your PDF files to images online with our fully responsive PDF to Image Converter Tool. Extract images from PDF pages easily.">
+    <meta name="keywords" content="PDF to image, convert PDF to image, online PDF tools, PDF converter">
+    <meta name="author" content="Abdul Rafay">
+    <title>PDF to Image Converter - Extract Images from PDF</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #007BFF;
+            margin-bottom: 0.5rem;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        main {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            animation: slideUp 0.8s ease-in-out;
+        }
+
+        #upload-section {
+            margin-bottom: 1.5rem;
+        }
+
+        #upload-section input, #upload-section select, #upload-section button {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        #upload-section input:focus, #upload-section select:focus, #upload-section button:hover {
+            border-color: #007BFF;
+            outline: none;
+            transform: scale(1.02);
+        }
+
+        #upload-section button {
+            background: #007BFF;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+        }
+
+        #upload-section button:hover {
+            background: #0056b3;
+        }
+
+        #output-section {
+            display: none;
+            margin-top: 1.5rem;
+        }
+
+        #preview-section {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        #preview-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+        }
+
+        #download-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.8rem 1.5rem;
+            background: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        #download-link:hover {
+            background: #218838;
+        }
+
+        footer {
+            margin-top: 2rem;
+            text-align: center;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            main {
+                padding: 1.5rem;
+            }
+
+            #upload-section input, #upload-section select, #upload-section button {
+                padding: 0.7rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+    <!-- Google AdSense Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_AD_SENSE_ID" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1>PDF to Image Converter</h1>
+        <p>Extract images from PDF pages easily.</p>
+    </header>
+
+    <main>
+        <section id="upload-section">
+            <input type="file" id="pdf-input" accept="application/pdf">
+            <label for="quality">Image Quality:</label>
+            <select id="quality">
+                <option value="1.0">High (100%)</option>
+                <option value="0.75">Medium (50%)</option>
+                <option value="0.5">Low (25%)</option>
+            </select>
+            <button id="convert-btn">Convert to Images</button>
+        </section>
+
+        <section id="output-section">
+            <h2>Converted Images</h2>
+            <a id="download-link" href="#" download="converted-images.zip">Download Images</a>
+        </section>
+
+        <section id="preview-section">
+            <h2>Preview</h2>
+            <div id="image-preview"></div>
+        </section>
+
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6965928065021324"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-6965928065021324"
+     data-ad-slot="1860672733"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 PDF to Image Converter. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript Functionality
+        document.getElementById('convert-btn').addEventListener('click', async function () {
+            const fileInput = document.getElementById('pdf-input');
+            const quality = parseFloat(document.getElementById('quality').value);
+            const outputSection = document.getElementById('output-section');
+            const downloadLink = document.getElementById('download-link');
+            const imagePreview = document.getElementById('image-preview');
+
+            if (fileInput.files.length === 0) {
+                alert('Please select a PDF file to convert.');
+                return;
+            }
+
+            const file = fileInput.files[0];
+            const pdfData = await file.arrayBuffer();
+
+            // Load PDF.js library
+            const pdfjsLib = window['pdfjs-dist/build/pdf'];
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
+
+            const pdf = await pdfjsLib.getDocument({ data: pdfData }).promise;
+            const zip = new JSZip();
+
+            imagePreview.innerHTML = ''; // Clear previous preview
+
+            for (let i = 1; i <= pdf.numPages; i++) {
+                const page = await pdf.getPage(i);
+                const viewport = page.getViewport({ scale: 2 });
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+
+                await page.render({ canvasContext: ctx, viewport: viewport }).promise;
+                const imageData = canvas.toDataURL('image/jpeg', quality);
+                const base64Data = imageData.split(',')[1];
+                zip.file(`page-${i}.jpg`, base64Data, { base64: true });
+
+                // Display image preview
+                const img = document.createElement('img');
+                img.src = imageData;
+                imagePreview.appendChild(img);
+            }
+
+            const zipBlob = await zip.generateAsync({ type: 'blob' });
+            const zipUrl = URL.createObjectURL(zipBlob);
+            downloadLink.href = zipUrl;
+            outputSection.style.display = 'block';
+        });
+    </script>
+    <!-- PDF.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <!-- JSZip Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+</body>
+</html>
