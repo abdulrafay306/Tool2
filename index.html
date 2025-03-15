@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore our collection of online tools for image and PDF optimization. Compress images, convert PDFs, and more!">
+    <meta name="keywords" content="image tools, PDF tools, online tools, image compressor, PDF converter, image resizer">
+    <meta name="author" content="Abdul Rafay">
+    <title>QUICK TOOLBOX- Image and PDF Optimization</title>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+     <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #ddd;
+        }
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 columns default */
+            gap: 1.5rem;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tool-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .tool-card i {
+            font-size: 3rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .tool-card h2 {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .tool-card p {
+            font-size: 0.9rem;
+            color: #ddd;
+            margin-bottom: 1rem;
+        }
+
+        .tool-card a {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .tool-card a:hover {
+            background: #0056b3;
+        }
+
+        .ad-section {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        footer {
+            margin-top: 2rem;
+            text-align: center;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .tool-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .tool-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .tool-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Online Tools</h1>
+        <p>Explore our collection of tools for image and PDF optimization.</p>
+    </header>
+
+    <main>
+        <!-- AdSense Ad Unit (Top of the Page) -->
+        <div class="ad-section">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_AD_SENSE_ID" crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_AD_SENSE_ID"
+                 data-ad-slot="1234567890"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div class="tool-grid">
+            <!-- Image Compression -->
+            <div class="tool-card">
+                <i class="fas fa-file-image"></i>
+                <h2>Image Compression</h2>
+                <p>Compress and optimize images for the web.</p>
+                <a href="img-compress.html">Use Tool</a>
+            </div>
+
+            <!-- PDF Compressor -->
+            <div class="tool-card">
+                <i class="fas fa-file-pdf"></i>
+                <h2>PDF Compress</h2>
+                <p>Reduce PDF file size without losing quality.</p>
+                <a href="pdf-compress.html">Use Tool</a>
+            </div>
+
+            <!-- Image to PDF -->
+            <div class="tool-card">
+                <i class="fas fa-image"></i>
+                <h2>Image to PDF</h2>
+                <p>Convert images to PDF files.</p>
+                <a href="img-to-pdf.html">Use Tool</a>
+            </div>
+
+            <!-- PDF to Image -->
+            <div class="tool-card">
+                <i class="fas fa-file-image"></i>
+                <h2>PDF to Image</h2>
+                <p>Convert PDFs to images.</p>
+                <a href="pdf-to-img.html">Use Tool</a>
+            </div>
+
+
+            <!-- Image Resizer -->
+            <div class="tool-card">
+                <i class="fas fa-expand-arrows-alt"></i>
+                <h2>Image Resizer</h2>
+                <p>Resize images to your desired dimensions.</p>
+                <a href="img-resize.html">Use Tool</a>
+            </div>
+
+            <!-- PDF Merger -->
+            <div class="tool-card">
+                <i class="fas fa-file-merge"></i>
+                <h2>PDF Merger</h2>
+                <p>Merge multiple PDF files into one.</p>
+                <a href="pdf-merge.html">Use Tool</a>
+            </div>
+
+            <!-- PDF Splitter -->
+            <div class="tool-card">
+                <i class="fas fa-file-export"></i>
+                <h2>PDF Splitter</h2>
+                <p>Split PDFs into individual pages.</p>
+                <a href="pdf-splitter.html">Use Tool</a>
+            </div>
+
+            <!-- Image Converter -->
+            <div class="tool-card">
+                <i class="fas fa-exchange-alt"></i>
+                <h2>Image Converter</h2>
+                <p>Convert images to different formats (JPG, PNG, etc.).</p>
+                <a href="img-convert.html">Use Tool</a>
+            </div>
+        </div>
+
+        <!-- AdSense Ad Unit (Bottom of the Page) -->
+       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6965928065021324"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-6965928065021324"
+     data-ad-slot="1860672733"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Online Tools. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
+    <footer>
+        <p>&copy; 2023 Online Tools. All rights reserved.</p>
+    </footer>
+</body>
+</html>
