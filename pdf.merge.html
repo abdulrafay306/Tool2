@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Merge multiple PDF files into one online with our fully responsive PDF Merger Tool. Combine PDFs easily and download the merged file.">
+    <meta name="keywords" content="PDF merger, merge PDFs, online PDF tools, PDF combiner">
+    <meta name="author" content="Abdul Rafay">
+    <title>PDF Merger Tool - Combine PDFs Online</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #007BFF;
+            margin-bottom: 0.5rem;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        main {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            animation: slideUp 0.8s ease-in-out;
+        }
+
+        #upload-section {
+            margin-bottom: 1.5rem;
+        }
+
+        #upload-section input, #upload-section button {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        #upload-section input:focus, #upload-section button:hover {
+            border-color: #007BFF;
+            outline: none;
+            transform: scale(1.02);
+        }
+
+        #upload-section button {
+            background: #007BFF;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+        }
+
+        #upload-section button:hover {
+            background: #0056b3;
+        }
+
+        #output-section {
+            display: none;
+            margin-top: 1.5rem;
+        }
+
+        #preview-section {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        #pdf-preview {
+            width: 100%;
+            height: 400px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        #download-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.8rem 1.5rem;
+            background: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        #download-link:hover {
+            background: #218838;
+        }
+
+        footer {
+            margin-top: 2rem;
+            text-align: center;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            main {
+                padding: 1.5rem;
+            }
+
+            #upload-section input, #upload-section button {
+                padding: 0.7rem;
+                font-size: 0.9rem;
+            }
+
+            #pdf-preview {
+                height: 300px;
+            }
+        }
+    </style>
+    <!-- Google AdSense Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_AD_SENSE_ID" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1>PDF Merger Tool</h1>
+        <p>Combine multiple PDF files into one easily.</p>
+    </header>
+
+    <main>
+        <section id="upload-section">
+            <input type="file" id="pdf-input" accept="application/pdf" multiple>
+            <button id="merge-btn">Merge PDFs</button>
+        </section>
+
+        <section id="output-section">
+            <h2>Merged PDF</h2>
+            <div id="preview-section">
+                <iframe id="pdf-preview" src="" style="border: none;"></iframe>
+            </div>
+            <a id="download-link" href="#" download="merged.pdf">Download Merged PDF</a>
+        </section>
+
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6965928065021324"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-6965928065021324"
+     data-ad-slot="1860672733"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 PDF Merger Tool. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript Functionality
+        document.getElementById('merge-btn').addEventListener('click', async function () {
+            const fileInput = document.getElementById('pdf-input');
+            const outputSection = document.getElementById('output-section');
+            const pdfPreview = document.getElementById('pdf-preview');
+            const downloadLink = document.getElementById('download-link');
+
+            if (fileInput.files.length === 0) {
+                alert('Please select at least one PDF file to merge.');
+                return;
+            }
+
+            const pdfFiles = Array.from(fileInput.files);
+            const { PDFDocument } = PDFLib;
+
+            try {
+                const pdfDoc = await PDFDocument.create();
+
+                for (const file of pdfFiles) {
+                    const fileData = await file.arrayBuffer();
+                    const pdf = await PDFDocument.load(fileData);
+                    const copiedPages = await pdfDoc.copyPages(pdf, pdf.getPageIndices());
+                    copiedPages.forEach((page) => pdfDoc.addPage(page));
+                }
+
+                const mergedPdf = await pdfDoc.save();
+                const mergedPdfBlob = new Blob([mergedPdf], { type: 'application/pdf' });
+                const mergedPdfUrl = URL.createObjectURL(mergedPdfBlob);
+
+                // Display PDF preview
+                pdfPreview.src = mergedPdfUrl;
+
+                // Set download link
+                downloadLink.href = mergedPdfUrl;
+                outputSection.style.display = 'block';
+            } catch (error) {
+                alert('An error occurred while merging the PDFs. Please try again.');
+                console.error(error);
+            }
+        });
+    </script>
+    <!-- PDF-Lib Library -->
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+</body>
+</html>
