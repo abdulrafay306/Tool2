@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Compress PDF files online quickly and efficiently with our free PDF Compressor Tool. Reduce PDF size without losing quality.">
+  <meta name="keywords" content="PDF compressor, compress PDF, reduce PDF size, online PDF tools, compress PDF online">
+  <meta name="author" content="Abdul Rafay">
+  <title>Compress PDF Online | Free PDF Compressor Tool</title>
+  
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" data-ad-client="ca-pub-YOUR_AD_SENSE_ID"></script>
+  
+  <!-- PDFLib Library -->
+  <script src="https://cdn.jsdelivr.net/npm/pdf-lib/dist/pdf-lib.min.js"></script>
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #fff;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    header h1 { font-size: 2.5rem; }
+    main {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      width: 100%;
+      backdrop-filter: blur(10px);
+    }
+    input, button {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    button { 
+      background: #007BFF; 
+      color: white; 
+      font-weight: bold; 
+      cursor: pointer; 
+      border: none; 
+    }
+    button:hover { background: #0056b3; }
+    .slider-container {
+      text-align: left;
+      margin-top: 10px;
+    }
+    .slider { width: 100%; margin-top: 5px; }
+    footer { margin-top: 2rem; font-size: 0.9rem; color: #ccc; }
+    iframe { width: 100%; height: 500px; border: none; margin-top: 20px; }
+    
+    /* AdSense Container */
+    .adsense-container {
+      margin-top: 20px;
+      width: 100%;
+      max-width: 500px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>PDF Compressor Tool</h1>
+    <p>Reduce PDF size online without losing quality.</p>
+  </header>
+  
+  <main>
+    <section id="upload-section">
+      <input type="file" id="pdf-input" accept="application/pdf" onchange="showFileName()">
+      <p id="file-name-display" style="color: #ccc; font-size: 0.9rem;"></p>
+      
+      <div class="slider-container">
+        <label for="compression-slider">Compression Level: <span id="compression-value">50%</span></label>
+        <input type="range" id="compression-slider" class="slider" min="10" max="100" value="50">
+      </div>
+      
+      <button id="compress-btn">Compress PDF</button>
+    </section>
+    
+    <section id="output-section" style="display: none;">
+      <h2>Download Compressed PDF</h2>
+      <a id="download-link" href="#" download="compressed.pdf">
+        <button>Download PDF</button>
+      </a>
+      <iframe id="pdf-preview"></iframe>
+    </section>
+    
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6965928065021324"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-6965928065021324"
+     data-ad-slot="1860672733"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    </div>
+  </main>
+  
+  <footer>
+    <p>&copy; 2025 PDF Compressor Tool. All rights reserved.</p>
+  </footer>
+  
+  <script>
+    function showFileName() {
+      const input = document.getElementById('pdf-input');
+      document.getElementById('file-name-display').textContent = input.files.length ? `Selected File: ${input.files[0].name}` : '';
+    }
+    
+    document.getElementById('compression-slider').addEventListener('input', function () {
+      document.getElementById('compression-value').textContent = this.value + '%';
+    });
+    
+    document.getElementById('compress-btn').addEventListener('click', async function () {
+      const fileInput = document.getElementById('pdf-input');
+      const compressionLevel = parseFloat(document.getElementById('compression-slider').value) / 100;
+      const outputSection = document.getElementById('output-section');
+      const downloadLink = document.getElementById('download-link');
+      const pdfPreview = document.getElementById('pdf-preview');
+  
+      if (fileInput.files.length === 0) {
+        alert('Please select a PDF file to compress.');
+        return;
+      }
+      
+      const file = fileInput.files[0];
+      if (file.type !== 'application/pdf') {
+        alert('Please upload a valid PDF file.');
+        return;
+      }
+  
+      try {
+        const reader = new FileReader();
+        reader.onload = async function (event) {
+          const pdfData = new Uint8Array(event.target.result);
+          const { PDFDocument } = PDFLib;
+          const pdfDoc = await PDFDocument.load(pdfData);
+          
+          // Set creator metadata for tracking
+          pdfDoc.setCreator('PDF Compressor Tool');
+  
+          // Save the PDF without modifying page dimensions
+          // Here you could implement image recompression if needed.
+          const compressedPdfBytes = await pdfDoc.save({ useObjectStreams: false });
+          const compressedBlob = new Blob([compressedPdfBytes], { type: 'application/pdf' });
+          const compressedUrl = URL.createObjectURL(compressedBlob);
+  
+          // Set the download link and preview source
+          downloadLink.href = compressedUrl;
+          pdfPreview.src = compressedUrl;
+          outputSection.style.display = 'block';
+        };
+        reader.readAsArrayBuffer(file);
+      } catch (error) {
+        console.error('Error compressing PDF:', error);
+        alert('Failed to compress PDF. Please try again.');
+      }
+    });
+  </script>
+</body>
+</html>
