@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Convert your images to PDF online with our fully responsive Image to PDF Converter Tool. Combine multiple images into a single PDF file.">
+    <meta name="keywords" content="image to PDF, convert images to PDF, online PDF tools, image converter">
+    <meta name="author" content="Abdul Rafay">
+    <title>Image to PDF Converter - Combine Images into PDF</title>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_AD_SENSE_ID" crossorigin="anonymous"></script>
+
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #ddd;
+        }
+
+        main {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            animation: slideUp 0.8s ease-in-out;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        #upload-section {
+            margin-bottom: 1.5rem;
+        }
+
+        #upload-section input, #upload-section select, #upload-section button {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        #upload-section select {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            padding-right: 30px;
+            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23333%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 12px;
+        }
+
+        #upload-section select option {
+            background: #fff;
+            color: #333;
+        }
+
+        #upload-section input:focus, #upload-section select:focus, #upload-section button:hover {
+            border-color: #007BFF;
+            outline: none;
+            transform: scale(1.02);
+        }
+
+        #upload-section button {
+            background: #007BFF;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+        }
+
+        #upload-section button:hover {
+            background: #0056b3;
+        }
+
+        #output-section {
+            display: none;
+            margin-top: 1.5rem;
+        }
+
+        #download-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.8rem 1.5rem;
+            background: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        #download-link:hover {
+            background: #218838;
+        }
+
+        .progress-bar {
+            width: 100%;
+            background-color: #ddd;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .progress-bar div {
+            height: 10px;
+            width: 0;
+            background: #007BFF;
+            border-radius: 5px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            margin-top: 20px;
+            display: none;
+        }
+
+        footer {
+            margin-top: 2rem;
+            text-align: center;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            main {
+                padding: 1.5rem;
+            }
+
+            #upload-section input, #upload-section select, #upload-section button {
+                padding: 0.7rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Image to PDF Converter</h1>
+        <p>Combine multiple images into a single PDF file.</p>
+    </header>
+
+    <main>
+        <section id="upload-section">
+            <input type="file" id="image-input" accept="image/*" multiple>
+            <label for="quality">Image Quality:</label>
+            <select id="quality">
+                <option value="1.0">High (100%)</option>
+                <option value="0.75">Medium (75%)</option>
+                <option value="0.5">Low (50%)</option>
+            </select>
+            <button id="convert-btn">Convert to PDF</button>
+            <div class="progress-bar" id="progress-bar">
+                <div></div>
+            </div>
+        </section>
+
+        <section id="output-section">
+            <h2>Converted PDF</h2>
+            <a id="download-link" href="#" download="converted.pdf">Download PDF</a>
+            <iframe id="pdf-preview"></iframe>
+        </section>
+    </main>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6965928065021324"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-6965928065021324"
+     data-ad-slot="1860672733"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Image to PDF Converter. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript Functionality
+        document.getElementById('convert-btn').addEventListener('click', function () {
+            const fileInput = document.getElementById('image-input');
+            const quality = parseFloat(document.getElementById('quality').value);
+            const outputSection = document.getElementById('output-section');
+            const downloadLink = document.getElementById('download-link');
+            const pdfPreview = document.getElementById('pdf-preview');
+            const progressBar = document.getElementById('progress-bar');
+            const progress = progressBar.querySelector("div");
+
+            if (fileInput.files.length === 0) {
+                alert('Please select at least one image to convert.');
+                return;
+            }
+
+            progressBar.style.display = 'block';
+            progress.style.width = "0%";
+            outputSection.style.display = 'none';
+            pdfPreview.style.display = 'none';
+
+            const images = Array.from(fileInput.files);
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const pdf = new jsPDF();
+
+            let processedImages = 0;
+
+            images.forEach((image, index) => {
+                const img = new Image();
+                img.src = URL.createObjectURL(image);
+
+                img.onload = function () {
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    ctx.drawImage(img, 0, 0);
+
+                    const imgData = canvas.toDataURL('image/jpeg', quality);
+                    if (index > 0) {
+                        pdf.addPage();
+                    }
+                    pdf.addImage(imgData, 'JPEG', 10, 10, 190, 0);
+
+                    processedImages++;
+                    progress.style.width = `${(processedImages / images.length) * 100}%`;
+
+                    if (processedImages === images.length) {
+                        const pdfUrl = pdf.output('bloburl');
+                        downloadLink.href = pdfUrl;
+                        pdfPreview.src = pdfUrl;
+                        outputSection.style.display = 'block';
+                        pdfPreview.style.display = 'block';
+                        progressBar.style.display = 'none';
+                    }
+                };
+            });
+        });
+    </script>
+    <!-- jsPDF Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        window.jsPDF = window.jspdf.jsPDF;
+    </script>
+</body>
+</html>
